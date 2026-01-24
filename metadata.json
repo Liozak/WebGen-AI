@@ -1,0 +1,5 @@
+{
+  "name": "WebGen AI",
+  "description": "An AI-powered website generator that converts natural language prompts into fully functional, responsive websites with live preview and code export.",
+  "requestFramePermissions": []
+}
