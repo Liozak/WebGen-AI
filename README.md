@@ -1,63 +1,123 @@
-# WebGen AI - Full Stack with Database
+# WebGen AI 🚀  
+AI-Powered Website Generator  
 
-A full-stack AI-powered website generator with persistent project history.
+WebGen AI is an intelligent web application that takes natural language prompts and automatically generates fully functional, responsive websites with layout, content, and styling using AI.
 
-## Prerequisites
+This project was built as part of an ML Internship Assessment task.
 
-- Node.js (Frontend)
-- Python 3.9+ (Backend)
-- MongoDB (Database)
-- A Google Gemini API Key
+---
 
-## Setup
+## ✨ Features
 
-### 1. Database (MongoDB)
+- 🧠 Natural language website generation  
+- 🎨 AI-generated layouts, content, and styling  
+- 🧩 Reusable UI component system  
+- 📱 Fully responsive design (desktop, tablet, mobile)  
+- 👀 Live preview of generated websites  
+- 📤 Export generated HTML/CSS/JS files  
 
-Ensure you have MongoDB installed and running locally, or have a connection string for a remote instance (e.g., MongoDB Atlas).
+---
 
-- Default Local URI: `mongodb://localhost:27017`
+## 🛠️ Tech Stack
 
-### 2. Backend (FastAPI)
+### Frontend
+- React + TypeScript  
+- Vite  
+- Custom UI Components  
 
-Navigate to the `backend` folder.
+### Backend
+- Python (FastAPI)  
+- REST API architecture  
+
+### AI
+- Google Gemini API (via Google AI Studio)  
+
+---
+
+## 📂 Project Structure
+
+WebGen_AI/
+│
+├── backend/ # FastAPI backend server
+│ ├── main.py
+│ ├── requirements.txt
+│
+├── components/ # Reusable React UI components
+├── services/ # API & Gemini service handlers
+│ └── geminiService.ts
+│
+├── App.tsx # Main React app
+├── index.tsx # React entry point
+├── vite.config.ts # Vite configuration
+├── package.json # Frontend dependencies
+└── README.md
+
+
+---
+
+## ⚙️ Setup Instructions (Local)
+
+### 1️⃣ Clone the repository
 
 ```bash
-# Create virtual environment
+git clone https://github.com/Liozak/WebGen-AI.git
+cd WebGen-AI
+2️⃣ Backend Setup
+cd backend
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+venv\Scripts\activate   # Windows
+pip install -r requirements.txt
+Create a .env file inside backend/ and add:
 
-# Install dependencies
-pip install -r backend/requirements.txt
+GEMINI_API_KEY=your_api_key_here
+Run backend:
 
-# Configure Environment
-export GEMINI_API_KEY="your_api_key_here"
-export MONGO_URI="mongodb://localhost:27017" # Optional
-export PORT=8000 # Optional
+python main.py
+Backend will run at:
 
-# Run Server
-python backend/main.py
-```
-The backend runs at `http://localhost:8000`. 
-Verify connectivity by opening `http://localhost:8000/health`. It should return `{"status": "ok"}`.
+http://127.0.0.1:8000
+Health check:
 
-### 3. Frontend (React)
+http://127.0.0.1:8000/health
+3️⃣ Frontend Setup
+From root folder:
 
-```bash
-# Install dependencies
 npm install
+npm run dev
+Frontend runs at:
 
-# Configure Backend URL (Optional)
-# If your backend runs on a different port or host:
-export VITE_BACKEND_URL="http://localhost:8000"
+http://localhost:3000
+🔗 API Endpoints
+GET /health → Backend health check
 
-# Run Development Server
-npm start
-```
-The frontend runs at `http://localhost:3000` or `5173`.
+POST /api/projects → Generate website from prompt
 
-## Architecture
+🚀 Deployment Plan
+Frontend → Vercel
 
-- **Frontend**: React, Tailwind CSS. Consumes REST APIs.
-- **Backend**: FastAPI. Handles AI generation and CRUD operations.
-- **Database**: MongoDB. Stores projects and version history.
-- **AI**: Google Gemini 2.0 Flash.
+Backend → Render / Railway
+
+Environment variables configured securely in deployment dashboard
+
+📸 Demo
+Users can:
+
+Enter a prompt like:
+"Create a simple portfolio website for a photographer"
+
+Instantly preview the generated website
+
+Export the final HTML
+
+🔒 Security
+API keys are stored in environment variables
+
+.env files are excluded via .gitignore
+
+👤 Author
+Zakie Sayyed
+B.Tech CSE (AI/ML) — 2026
+Aspiring Cybersecurity & AI Engineer
+
+📄 License
+This project is for educational and internship assessment purposes.
