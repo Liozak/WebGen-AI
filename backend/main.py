@@ -36,8 +36,16 @@ app.add_middleware(
 
 # Environment Variables
 API_KEY = os.environ.get("GEMINI_API_KEY")
-MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
-DB_NAME = os.environ.get("DB_NAME", "webgen_ai")
+MONGO_URI = os.environ.get("MONGODB_URI")   # must match Render exactly
+DB_NAME = "webgen_db"
+
+@app.on_event("startup")
+async def startup_db():
+    try:
+        await mongo_client.admin.command("ping")
+        print("✅ MongoDB connected successfully")
+    except Exception as e:
+        print("❌ MongoDB connection failed:", e)
 
 # Gemini Client Initialization
 client = None
