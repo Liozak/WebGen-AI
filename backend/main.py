@@ -57,7 +57,7 @@ if API_KEY:
 else:
     print("WARNING: GEMINI_API_KEY is not set.")
 
-MODEL_NAME = 'gemini-2.0-flash-exp'
+MODEL_NAME = "gemini-2.5-flash"
 
 # MongoDB Client
 mongo_client = AsyncIOMotorClient(MONGO_URI, serverSelectionTimeoutMS=3000)

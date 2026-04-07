@@ -1,0 +1,4 @@
+tEwyEDsYogzkmHQG
+lionelsayyed1852_db_user
+
+mongodb+srv://lionelsayyed1852_db_user:tEwyEDsYogzkmHQG@webgen-cluster.dgeb7hx.mongodb.net/webgen_db?retryWrites=true&w=majority
